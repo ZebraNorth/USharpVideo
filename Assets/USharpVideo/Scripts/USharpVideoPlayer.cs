@@ -1333,8 +1333,13 @@ namespace UdonSharp.Video
             VideoPlayerManager manager = GetVideoManager();
             newControlHandler.SetVolume(manager.GetVolume());
             newControlHandler.SetMuted(manager.IsMuted());
+
+            if (IsUsingUnityPlayer())
+                newControlHandler.SetToVideoPlayerMode();
+            else
+                newControlHandler.SetToStreamPlayerMode();
         }
-        
+
         public void UnregisterControlHandler(VideoControlHandler controlHandler)
         {
             if (_registeredControlHandlers == null)
