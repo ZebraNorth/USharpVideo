@@ -1447,6 +1447,8 @@ namespace UdonSharp.Video
                     return;
             }
 
+            newScreenHandler.UpdateVideoTexture(_lastAssignedRenderTexture, IsUsingAVProPlayer());
+
             VideoScreenHandler[] newControlHandlers = new VideoScreenHandler[_registeredScreenHandlers.Length + 1];
             _registeredScreenHandlers.CopyTo(newControlHandlers, 0);
             _registeredScreenHandlers = newControlHandlers;
@@ -1495,7 +1497,7 @@ namespace UdonSharp.Video
 
             foreach (VideoScreenHandler handler in _registeredScreenHandlers)
             {
-                if (handler)
+                if (handler && handler.GetVideoTexture() != renderTexture)
                 {
                     handler.UpdateVideoTexture(renderTexture, IsUsingAVProPlayer());
                 }
