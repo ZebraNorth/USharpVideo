@@ -31,15 +31,9 @@ namespace UdonSharp.Video
         private Renderer targetRenderer;
         private Texture lastRenderTexture;
 
-        private void Start()
-        {
-            targetRenderer = GetComponent<Renderer>();
-
-            OnEnable();
-        }
-
         private void OnEnable()
         {
+            targetRenderer = GetComponent<Renderer>();
             SetSourceVideoPlayer(sourceVideoPlayer);
         }
 
