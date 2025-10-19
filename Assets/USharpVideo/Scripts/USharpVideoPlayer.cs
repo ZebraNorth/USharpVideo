@@ -1497,7 +1497,7 @@ namespace UdonSharp.Video
 
             foreach (VideoScreenHandler handler in _registeredScreenHandlers)
             {
-                if (handler)
+                if (handler && handler.GetVideoTexture() != renderTexture)
                 {
                     handler.UpdateVideoTexture(renderTexture, IsUsingAVProPlayer());
                 }

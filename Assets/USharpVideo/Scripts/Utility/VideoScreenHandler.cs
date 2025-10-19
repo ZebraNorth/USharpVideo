@@ -51,9 +51,6 @@ namespace UdonSharp.Video
 
         public void UpdateVideoTexture(Texture renderTexture, bool isAVPro)
         {
-            if (renderTexture == lastRenderTexture)
-                return;
-
             if (targetRenderer)
             {
                 Material rendererMat;
